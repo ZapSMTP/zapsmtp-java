@@ -54,6 +54,8 @@ public final class StatsMetricsParams extends ApiParams {
   /**
    * hour (ranges up to 31 days) or day for series. Default: hour up to 48 hours, else day.
    *
+   * <p>Values: {@link Granularity}.
+   *
    * @return the value, or null when not set
    */
   public String getGranularity() {
@@ -142,6 +144,8 @@ public final class StatsMetricsParams extends ApiParams {
     /**
      * hour (ranges up to 31 days) or day for series. Default: hour up to 48 hours, else day.
      *
+     * <p>Values: {@link Granularity}.
+     *
      * @param granularity the value
      * @return this builder
      */
@@ -214,5 +218,22 @@ public final class StatsMetricsParams extends ApiParams {
     public StatsMetricsParams build() {
       return new StatsMetricsParams(this);
     }
+  }
+
+  /**
+   * The values of {@code granularity}.
+   */
+  public static final class Granularity {
+    /**
+     * {@code "hour"}.
+     */
+    public static final String HOUR = "hour";
+
+    /**
+     * {@code "day"}.
+     */
+    public static final String DAY = "day";
+
+    private Granularity() {}
   }
 }

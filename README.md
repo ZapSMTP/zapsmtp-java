@@ -112,6 +112,13 @@ page.hasNextPage();   // no request is made
 page.getNextPage();   // the next page, or null after the last one
 ```
 
+Parameters with fixed values have their constants in the params class, next to the field:
+`EmailsListParams.Status.BOUNCED`, `ApiKeysCreateParams.Permission.SENDING_ACCESS`,
+`WebhooksCreateParams.Event.EMAIL_DELIVERED`, `StatsMetricsParams.Granularity.DAY` and so on.
+
+A conversation is `com.zapsmtp.models.Thread`, which has the simple name of `java.lang.Thread`:
+import it by name (then write `java.lang.Thread` for the other one) or write it out in full.
+
 ## Responses
 
 Response models are deeply immutable: lists and maps, also nested ones and the free-form JSON fields, cannot be
