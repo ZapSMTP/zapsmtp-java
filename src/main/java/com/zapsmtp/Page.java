@@ -1,5 +1,9 @@
 package com.zapsmtp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -19,8 +23,12 @@ import java.util.stream.StreamSupport;
  * }
  * }</pre>
  *
+ * <p>As JSON (Jackson) a page is what the API sent: {@code data}, {@code has_more} and {@code next_cursor}.
+ * Writing it never loads another page.
+ *
  * @param <T> the item type
  */
+@JsonPropertyOrder({"data", "has_more", "next_cursor"})
 public final class Page<T> {
   private final List<T> data;
   private final boolean hasMore;
@@ -53,6 +61,7 @@ public final class Page<T> {
    *
    * @return an unmodifiable list
    */
+  @JsonProperty("data")
   public List<T> getData() {
     return data;
   }
@@ -62,6 +71,7 @@ public final class Page<T> {
    *
    * @return true when more follow
    */
+  @JsonProperty("has_more")
   public boolean hasMore() {
     return hasMore;
   }
@@ -71,6 +81,8 @@ public final class Page<T> {
    *
    * @return the cursor, or null
    */
+  @JsonProperty("next_cursor")
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   public String getNextCursor() {
     return nextCursor;
   }
@@ -80,6 +92,7 @@ public final class Page<T> {
    *
    * @return true when {@link #getNextPage()} has a page to load
    */
+  @JsonIgnore
   public boolean hasNextPage() {
     return next != null;
   }
@@ -90,6 +103,7 @@ public final class Page<T> {
    * @return the next page, or null after the last one
    * @throws com.zapsmtp.errors.ZapSMTPException when the request fails
    */
+  @JsonIgnore // a request: never a property (serializing a page would walk every page after it)
   public Page<T> getNextPage() {
     return next == null ? null : next.get();
   }

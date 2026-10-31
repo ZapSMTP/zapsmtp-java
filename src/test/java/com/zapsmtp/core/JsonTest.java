@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.zapsmtp.Page;
 import com.zapsmtp.models.Attachment;
 import com.zapsmtp.models.Email;
 import com.zapsmtp.models.Webhook;
@@ -25,6 +26,15 @@ import org.junit.jupiter.api.Test;
 class JsonTest {
   private static <T> T decode(String json, Class<T> type) {
     return Json.decode(Json.parse(json), Json.MAPPER.constructType(type));
+  }
+
+  @Test
+  void aPageWritesWhatTheApiSentAndNeverLoadsTheNextPage() throws Exception {
+    Page<String> page = Page.of(List.of("a"), true, "c1", () -> {
+      throw new AssertionError("writing a page loaded the next one");
+    });
+    assertEquals("{\"data\":[\"a\"],\"has_more\":true,\"next_cursor\":\"c1\"}", Json.MAPPER.writeValueAsString(page));
+    assertEquals("{\"data\":[],\"has_more\":false}", Json.MAPPER.writeValueAsString(Page.of(List.of(), false, null, null)));
   }
 
   @Test
