@@ -34,7 +34,7 @@ public final class StatsTimeseriesParams extends ApiParams {
   }
 
   /**
-   * 1-720; out-of-range falls back to 24. Bucket size: &lt;=1h → 60 s, &lt;=6h → 300 s, &lt;=24h → 1800 s,
+   * 1-720 (422 invalid_parameter otherwise). Bucket size: &lt;=1h → 60 s, &lt;=6h → 300 s, &lt;=24h → 1800 s,
    * &lt;=168h → 10800 s, otherwise 43200 s. Default: 24.
    *
    * @return the value, or null when not set
@@ -55,7 +55,7 @@ public final class StatsTimeseriesParams extends ApiParams {
     }
 
     /**
-     * 1-720; out-of-range falls back to 24. Bucket size: &lt;=1h → 60 s, &lt;=6h → 300 s, &lt;=24h → 1800 s,
+     * 1-720 (422 invalid_parameter otherwise). Bucket size: &lt;=1h → 60 s, &lt;=6h → 300 s, &lt;=24h → 1800 s,
      * &lt;=168h → 10800 s, otherwise 43200 s. Default: 24.
      *
      * @param hours the value

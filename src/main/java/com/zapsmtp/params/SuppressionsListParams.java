@@ -34,7 +34,7 @@ public final class SuppressionsListParams extends ApiParams {
   }
 
   /**
-   * 1-1000; out-of-range falls back to 100. Default: 100.
+   * 1-1000. Limits: 422 invalid_parameter otherwise. Default: 100.
    *
    * @return the value, or null when not set
    */
@@ -73,7 +73,7 @@ public final class SuppressionsListParams extends ApiParams {
     }
 
     /**
-     * 1-1000; out-of-range falls back to 100. Default: 100.
+     * 1-1000. Limits: 422 invalid_parameter otherwise. Default: 100.
      *
      * @param limit the value
      * @return this builder

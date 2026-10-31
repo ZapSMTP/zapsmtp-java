@@ -14,6 +14,9 @@ import java.util.List;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public final class SendBatchResponseData extends ApiModel {
+  @JsonProperty("failed_recipients")
+  private List<String> failedRecipients;
+
   @JsonProperty("id")
   private String id;
 
@@ -33,6 +36,16 @@ public final class SendBatchResponseData extends ApiModel {
   private Boolean unconfirmed;
 
   private SendBatchResponseData() {}
+
+  /**
+   * The {@code failed_recipients} field.
+   *
+   * @return the value, or null when the API left it out
+   */
+  @JsonProperty("failed_recipients")
+  public List<String> getFailedRecipients() {
+    return view(failedRecipients);
+  }
 
   /**
    * The {@code id} field.

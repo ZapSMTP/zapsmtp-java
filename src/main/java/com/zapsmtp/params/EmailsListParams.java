@@ -36,7 +36,7 @@ public final class EmailsListParams extends ApiParams {
   }
 
   /**
-   * 1-100; out-of-range values fall back to 20. Default: 20.
+   * 1-100. Limits: 422 invalid_parameter otherwise. Default: 20.
    *
    * @return the value, or null when not set
    */
@@ -66,7 +66,8 @@ public final class EmailsListParams extends ApiParams {
 
   /**
    * Filter by latest status. status=scheduled lists pending scheduled sends instead (different item shape,
-   * ordered by scheduled time ascending, has_more always false, other filters/cursors ignored).
+   * ordered by scheduled time ascending, has_more always false, other filters/cursors ignored, though they must
+   * be valid).
    *
    * <p>Values: {@link Status}.
    *
@@ -86,8 +87,8 @@ public final class EmailsListParams extends ApiParams {
   }
 
   /**
-   * Look-back window in days, 1-90 (other values ignored). Always capped by the plan's log retention. Default:
-   * 30.
+   * Look-back window in days, 1-90. Always capped by the plan's log retention. Limits: 422 invalid_parameter
+   * otherwise. Default: 30.
    *
    * @return the value, or null when not set
    */
@@ -107,7 +108,7 @@ public final class EmailsListParams extends ApiParams {
   }
 
   /**
-   * Filter live or test-mode (sandbox) traffic; other values ignored.
+   * Filter live or test-mode (sandbox) traffic. Limits: 422 invalid_parameter for other values.
    *
    * <p>Values: {@link Mode}.
    *
@@ -138,7 +139,7 @@ public final class EmailsListParams extends ApiParams {
     }
 
     /**
-     * 1-100; out-of-range values fall back to 20. Default: 20.
+     * 1-100. Limits: 422 invalid_parameter otherwise. Default: 20.
      *
      * @param limit the value
      * @return this builder
@@ -174,7 +175,8 @@ public final class EmailsListParams extends ApiParams {
 
     /**
      * Filter by latest status. status=scheduled lists pending scheduled sends instead (different item shape,
-     * ordered by scheduled time ascending, has_more always false, other filters/cursors ignored).
+     * ordered by scheduled time ascending, has_more always false, other filters/cursors ignored, though they
+     * must be valid).
      *
      * <p>Values: {@link Status}.
      *
@@ -198,8 +200,8 @@ public final class EmailsListParams extends ApiParams {
     }
 
     /**
-     * Look-back window in days, 1-90 (other values ignored). Always capped by the plan's log retention. Default:
-     * 30.
+     * Look-back window in days, 1-90. Always capped by the plan's log retention. Limits: 422 invalid_parameter
+     * otherwise. Default: 30.
      *
      * @param days the value
      * @return this builder
@@ -223,7 +225,7 @@ public final class EmailsListParams extends ApiParams {
     }
 
     /**
-     * Filter live or test-mode (sandbox) traffic; other values ignored.
+     * Filter live or test-mode (sandbox) traffic. Limits: 422 invalid_parameter for other values.
      *
      * <p>Values: {@link Mode}.
      *

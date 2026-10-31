@@ -174,8 +174,8 @@ zap.emails().send(params, RequestOptions.builder()
 
 ## Response headers
 
-Every method has a `...WithResponse` twin that gives the status and headers with the data, such as the
-request id and the rate-limit and quota headers:
+Every API method has a `...WithResponse` twin (the `uploadFile` helpers excepted) that gives the status and
+headers with the data, such as the request id and the rate-limit and quota headers:
 
 ```java
 ZapResponse<SendEmailResponse> r = zap.emails().sendWithResponse(params);

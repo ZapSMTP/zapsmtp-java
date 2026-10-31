@@ -68,7 +68,7 @@ public final class Template extends ApiModel {
   private List<TemplateVariableSchema> variableSchema;
 
   @JsonProperty("variables")
-  private Map<String, String> variables;
+  private Map<String, Object> variables;
 
   private Template() {}
 
@@ -248,7 +248,7 @@ public final class Template extends ApiModel {
    * @return the value, or null when the API left it out
    */
   @JsonProperty("variables")
-  public Map<String, String> getVariables() {
+  public Map<String, Object> getVariables() {
     return view(variables);
   }
 }

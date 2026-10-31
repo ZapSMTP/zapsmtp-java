@@ -34,7 +34,7 @@ public final class EmailsReceivingAttachmentsListParams extends ApiParams {
   }
 
   /**
-   * 1-100; when omitted or out of range all attachments are returned.
+   * 1-100; when omitted all attachments are returned. Limits: 422 invalid_parameter otherwise.
    *
    * @return the value, or null when not set
    */
@@ -72,7 +72,7 @@ public final class EmailsReceivingAttachmentsListParams extends ApiParams {
     }
 
     /**
-     * 1-100; when omitted or out of range all attachments are returned.
+     * 1-100; when omitted all attachments are returned. Limits: 422 invalid_parameter otherwise.
      *
      * @param limit the value
      * @return this builder

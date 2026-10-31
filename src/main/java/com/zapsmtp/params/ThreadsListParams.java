@@ -34,7 +34,7 @@ public final class ThreadsListParams extends ApiParams {
   }
 
   /**
-   * 1-100; out-of-range falls back to 20. Default: 20.
+   * 1-100. Limits: 422 invalid_parameter otherwise. Default: 20.
    *
    * @return the value, or null when not set
    */
@@ -63,7 +63,7 @@ public final class ThreadsListParams extends ApiParams {
   }
 
   /**
-   * true: only conversations whose last human email came in.
+   * true: only conversations whose last human email came in. Limits: 422 invalid_parameter unless true or false.
    *
    * @return the value, or null when not set
    */
@@ -72,7 +72,8 @@ public final class ThreadsListParams extends ApiParams {
   }
 
   /**
-   * true: only conversations with an email received after their read mark.
+   * true: only conversations with an email received after their read mark. Limits: 422 invalid_parameter unless
+   * true or false.
    *
    * @return the value, or null when not set
    */
@@ -101,7 +102,7 @@ public final class ThreadsListParams extends ApiParams {
     }
 
     /**
-     * 1-100; out-of-range falls back to 20. Default: 20.
+     * 1-100. Limits: 422 invalid_parameter otherwise. Default: 20.
      *
      * @param limit the value
      * @return this builder
@@ -136,7 +137,8 @@ public final class ThreadsListParams extends ApiParams {
     }
 
     /**
-     * true: only conversations whose last human email came in.
+     * true: only conversations whose last human email came in. Limits: 422 invalid_parameter unless true or
+     * false.
      *
      * @param awaitingReply the value
      * @return this builder
@@ -147,7 +149,8 @@ public final class ThreadsListParams extends ApiParams {
     }
 
     /**
-     * true: only conversations with an email received after their read mark.
+     * true: only conversations with an email received after their read mark. Limits: 422 invalid_parameter
+     * unless true or false.
      *
      * @param unread the value
      * @return this builder

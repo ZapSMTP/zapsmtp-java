@@ -34,7 +34,7 @@ public final class StatsBreakdownParams extends ApiParams {
   }
 
   /**
-   * 1-720; out-of-range falls back to 24. Default: 24.
+   * 1-720. Limits: 422 invalid_parameter otherwise. Default: 24.
    *
    * @return the value, or null when not set
    */
@@ -54,7 +54,7 @@ public final class StatsBreakdownParams extends ApiParams {
     }
 
     /**
-     * 1-720; out-of-range falls back to 24. Default: 24.
+     * 1-720. Limits: 422 invalid_parameter otherwise. Default: 24.
      *
      * @param hours the value
      * @return this builder

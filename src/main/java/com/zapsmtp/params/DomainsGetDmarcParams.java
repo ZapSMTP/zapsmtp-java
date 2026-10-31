@@ -34,7 +34,7 @@ public final class DomainsGetDmarcParams extends ApiParams {
   }
 
   /**
-   * 1-180; out-of-range falls back to 30. Default: 30.
+   * 1-180. Limits: 422 invalid_parameter otherwise. Default: 30.
    *
    * @return the value, or null when not set
    */
@@ -54,7 +54,7 @@ public final class DomainsGetDmarcParams extends ApiParams {
     }
 
     /**
-     * 1-180; out-of-range falls back to 30. Default: 30.
+     * 1-180. Limits: 422 invalid_parameter otherwise. Default: 30.
      *
      * @param days the value
      * @return this builder

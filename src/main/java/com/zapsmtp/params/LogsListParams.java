@@ -34,7 +34,7 @@ public final class LogsListParams extends ApiParams {
   }
 
   /**
-   * 1–100. Default: 20.
+   * 1–100. Limits: 422 invalid_parameter otherwise. Default: 20.
    *
    * @return the value, or null when not set
    */
@@ -108,7 +108,7 @@ public final class LogsListParams extends ApiParams {
     }
 
     /**
-     * 1–100. Default: 20.
+     * 1–100. Limits: 422 invalid_parameter otherwise. Default: 20.
      *
      * @param limit the value
      * @return this builder
