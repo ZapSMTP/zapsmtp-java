@@ -2,6 +2,7 @@
 package com.zapsmtp;
 
 import com.zapsmtp.core.ApiClient;
+import com.zapsmtp.services.AccountService;
 import com.zapsmtp.services.ActionsService;
 import com.zapsmtp.services.ApiKeysService;
 import com.zapsmtp.services.DedicatedIpsService;
@@ -48,6 +49,7 @@ public final class ZapSMTP {
   private final DedicatedIpsService dedicatedIps;
   private final LogsService logs;
   private final UsageService usage;
+  private final AccountService account;
   private final TemplateModulesService templateModules;
   private final TemplateAssetsService templateAssets;
   private final TemplateTimersService templateTimers;
@@ -70,6 +72,7 @@ public final class ZapSMTP {
     dedicatedIps = new DedicatedIpsService(client);
     logs = new LogsService(client);
     usage = new UsageService(client);
+    account = new AccountService(client);
     templateModules = new TemplateModulesService(client);
     templateAssets = new TemplateAssetsService(client);
     templateTimers = new TemplateTimersService(client);
@@ -229,6 +232,15 @@ public final class ZapSMTP {
    */
   public UsageService usage() {
     return usage;
+  }
+
+  /**
+   * The {@code account} operations.
+   *
+   * @return the service
+   */
+  public AccountService account() {
+    return account;
   }
 
   /**
