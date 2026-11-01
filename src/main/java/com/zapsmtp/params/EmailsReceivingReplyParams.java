@@ -230,6 +230,17 @@ public final class EmailsReceivingReplyParams extends ApiParams {
   }
 
   /**
+   * opportunistic, required or verified: required delivers only over TLS, verified only with a valid certificate
+   * for the receiving server. The stricter of this and the domain’s policy applies: it raises the domain’s
+   * policy, never lowers it.
+   *
+   * @return the value, or null when not set
+   */
+  public String getTls() {
+    return get("tls");
+  }
+
+  /**
    * Builds {@link EmailsReceivingReplyParams}.
    */
   @JsonPOJOBuilder(withPrefix = "")
@@ -542,6 +553,19 @@ public final class EmailsReceivingReplyParams extends ApiParams {
     @JsonProperty("scheduled_at")
     public Builder scheduledAt(String scheduledAt) {
       return put("scheduled_at", scheduledAt);
+    }
+
+    /**
+     * opportunistic, required or verified: required delivers only over TLS, verified only with a valid
+     * certificate for the receiving server. The stricter of this and the domain’s policy applies: it raises the
+     * domain’s policy, never lowers it.
+     *
+     * @param tls the value
+     * @return this builder
+     */
+    @JsonProperty("tls")
+    public Builder tls(String tls) {
+      return put("tls", tls);
     }
 
     /**

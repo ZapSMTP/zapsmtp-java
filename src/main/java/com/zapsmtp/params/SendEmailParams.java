@@ -205,8 +205,9 @@ public final class SendEmailParams extends ApiParams {
   }
 
   /**
-   * required or verified: deliver only over TLS (verified: with a valid certificate for the receiving server).
-   * Raises the domain's policy, never lowers it.
+   * opportunistic, required or verified: required delivers only over TLS, verified only with a valid certificate
+   * for the receiving server. The stricter of this and the domain’s policy applies: it raises the domain’s
+   * policy, never lowers it.
    *
    * @return the value, or null when not set
    */
@@ -498,8 +499,9 @@ public final class SendEmailParams extends ApiParams {
     }
 
     /**
-     * required or verified: deliver only over TLS (verified: with a valid certificate for the receiving server).
-     * Raises the domain's policy, never lowers it.
+     * opportunistic, required or verified: required delivers only over TLS, verified only with a valid
+     * certificate for the receiving server. The stricter of this and the domain’s policy applies: it raises the
+     * domain’s policy, never lowers it.
      *
      * @param tls the value
      * @return this builder

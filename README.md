@@ -17,14 +17,14 @@ Maven:
 <dependency>
   <groupId>com.zapsmtp</groupId>
   <artifactId>zapsmtp-java</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.5</version>
 </dependency>
 ```
 
 Gradle:
 
 ```kotlin
-implementation("com.zapsmtp:zapsmtp-java:0.1.0")
+implementation("com.zapsmtp:zapsmtp-java:0.1.5")
 ```
 
 ## Send an email
@@ -160,7 +160,7 @@ try {
 
 A failed request is retried twice by default, with exponential backoff (0.5 s, 1 s, 2 s, … up to 8 s, with
 jitter), or after `Retry-After` when the API sends it (up to 60 s). Retried: network errors and timeouts, 408,
-429 (except monthly and daily quota errors), 409 `idempotency_request_in_progress`, and 500, 502, 503, 504.
+429 (except monthly and daily quota errors and `thread_reply_limit`), 409 `idempotency_request_in_progress`, and 500, 502, 503, 504.
 
 Only requests that are safe to repeat are retried after a 5xx or a lost connection: GET, PUT, DELETE, and the
 sends (`emails().send`, `emails().sendBatch`, `emails().receiving().reply`), which carry an `Idempotency-Key`:
