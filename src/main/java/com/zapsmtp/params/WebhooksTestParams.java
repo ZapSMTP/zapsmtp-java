@@ -147,6 +147,61 @@ public final class WebhooksTestParams extends ApiParams {
      */
     public static final String EMAIL_REPLIED = "email.replied";
 
+    /**
+     * {@code "email.opened_unique"}.
+     */
+    public static final String EMAIL_OPENED_UNIQUE = "email.opened_unique";
+
+    /**
+     * {@code "email.clicked_unique"}.
+     */
+    public static final String EMAIL_CLICKED_UNIQUE = "email.clicked_unique";
+
+    /**
+     * {@code "email.unsubscribed"}.
+     */
+    public static final String EMAIL_UNSUBSCRIBED = "email.unsubscribed";
+
+    /**
+     * {@code "email.forward_failed"}.
+     */
+    public static final String EMAIL_FORWARD_FAILED = "email.forward_failed";
+
+    /**
+     * {@code "domain.verified"}.
+     */
+    public static final String DOMAIN_VERIFIED = "domain.verified";
+
+    /**
+     * {@code "domain.reputation_changed"}.
+     */
+    public static final String DOMAIN_REPUTATION_CHANGED = "domain.reputation_changed";
+
+    /**
+     * {@code "email.scheduled"}.
+     */
+    public static final String EMAIL_SCHEDULED = "email.scheduled";
+
+    /**
+     * {@code "suppression.added"}.
+     */
+    public static final String SUPPRESSION_ADDED = "suppression.added";
+
+    /**
+     * {@code "suppression.removed"}.
+     */
+    public static final String SUPPRESSION_REMOVED = "suppression.removed";
+
+    /**
+     * {@code "domain.created"}.
+     */
+    public static final String DOMAIN_CREATED = "domain.created";
+
+    /**
+     * {@code "domain.deleted"}.
+     */
+    public static final String DOMAIN_DELETED = "domain.deleted";
+
     private Type() {}
   }
 }

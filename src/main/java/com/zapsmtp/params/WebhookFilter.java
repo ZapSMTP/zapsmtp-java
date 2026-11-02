@@ -10,7 +10,8 @@ import com.zapsmtp.core.ApiParams;
 import java.util.List;
 
 /**
- * Narrows email.clicked to some click actions.
+ * Narrows what an endpoint receives: email.clicked (and email.clicked_unique) to some click actions, every event
+ * to some domains.
  */
 @JsonDeserialize(builder = WebhookFilter.Builder.class)
 public final class WebhookFilter extends ApiParams {
@@ -46,6 +47,15 @@ public final class WebhookFilter extends ApiParams {
   }
 
   /**
+   * The {@code domains} parameter.
+   *
+   * @return the value, or null when not set
+   */
+  public List<String> getDomains() {
+    return get("domains");
+  }
+
+  /**
    * Builds {@link WebhookFilter}.
    */
   @JsonPOJOBuilder(withPrefix = "")
@@ -76,6 +86,28 @@ public final class WebhookFilter extends ApiParams {
     @JsonProperty("actions")
     public Builder actions(List<String> actions) {
       return put("actions", list(actions));
+    }
+
+    /**
+     * The {@code domains} parameter.
+     *
+     * @param domains the values
+     * @return this builder
+     */
+    @JsonIgnore
+    public Builder domains(String... domains) {
+      return put("domains", list(domains));
+    }
+
+    /**
+     * The {@code domains} parameter.
+     *
+     * @param domains the values
+     * @return this builder
+     */
+    @JsonProperty("domains")
+    public Builder domains(List<String> domains) {
+      return put("domains", list(domains));
     }
 
     /**

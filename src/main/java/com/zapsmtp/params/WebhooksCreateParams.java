@@ -46,8 +46,8 @@ public final class WebhooksCreateParams extends ApiParams {
   }
 
   /**
-   * Limits: unknown type → 422 invalid_parameter "unknown event type &lt;x&gt;; allowed: ...". Default: all
-   * event types.
+   * Limits: unknown type → 422 invalid_parameter "unknown event type &lt;x&gt;; allowed: ...". Default: every
+   * type except email.opened_unique and email.clicked_unique.
    *
    * <p>Values: {@link Event}.
    *
@@ -79,8 +79,9 @@ public final class WebhooksCreateParams extends ApiParams {
   }
 
   /**
-   * Narrows email.clicked to some click actions; other event types are not affected. Empty or absent: every
-   * click. Default: &#123;"actions": []&#125;.
+   * Narrows what the endpoint receives: actions narrows email.clicked (and email.clicked_unique) to some click
+   * actions; domains narrows every event to some domains. Empty or absent: every click, every domain. Default:
+   * &#123;"actions": [], "domains": []&#125;.
    *
    * @return the value, or null when not set
    */
@@ -111,8 +112,8 @@ public final class WebhooksCreateParams extends ApiParams {
     }
 
     /**
-     * Limits: unknown type → 422 invalid_parameter "unknown event type &lt;x&gt;; allowed: ...". Default: all
-     * event types.
+     * Limits: unknown type → 422 invalid_parameter "unknown event type &lt;x&gt;; allowed: ...". Default: every
+     * type except email.opened_unique and email.clicked_unique.
      *
      * <p>Values: {@link Event}.
      *
@@ -125,8 +126,8 @@ public final class WebhooksCreateParams extends ApiParams {
     }
 
     /**
-     * Limits: unknown type → 422 invalid_parameter "unknown event type &lt;x&gt;; allowed: ...". Default: all
-     * event types.
+     * Limits: unknown type → 422 invalid_parameter "unknown event type &lt;x&gt;; allowed: ...". Default: every
+     * type except email.opened_unique and email.clicked_unique.
      *
      * <p>Values: {@link Event}.
      *
@@ -164,8 +165,9 @@ public final class WebhooksCreateParams extends ApiParams {
     }
 
     /**
-     * Narrows email.clicked to some click actions; other event types are not affected. Empty or absent: every
-     * click. Default: &#123;"actions": []&#125;.
+     * Narrows what the endpoint receives: actions narrows email.clicked (and email.clicked_unique) to some click
+     * actions; domains narrows every event to some domains. Empty or absent: every click, every domain. Default:
+     * &#123;"actions": [], "domains": []&#125;.
      *
      * @param filter the value
      * @return this builder
@@ -255,6 +257,61 @@ public final class WebhooksCreateParams extends ApiParams {
      * {@code "email.replied"}.
      */
     public static final String EMAIL_REPLIED = "email.replied";
+
+    /**
+     * {@code "email.opened_unique"}.
+     */
+    public static final String EMAIL_OPENED_UNIQUE = "email.opened_unique";
+
+    /**
+     * {@code "email.clicked_unique"}.
+     */
+    public static final String EMAIL_CLICKED_UNIQUE = "email.clicked_unique";
+
+    /**
+     * {@code "email.unsubscribed"}.
+     */
+    public static final String EMAIL_UNSUBSCRIBED = "email.unsubscribed";
+
+    /**
+     * {@code "email.forward_failed"}.
+     */
+    public static final String EMAIL_FORWARD_FAILED = "email.forward_failed";
+
+    /**
+     * {@code "domain.verified"}.
+     */
+    public static final String DOMAIN_VERIFIED = "domain.verified";
+
+    /**
+     * {@code "domain.reputation_changed"}.
+     */
+    public static final String DOMAIN_REPUTATION_CHANGED = "domain.reputation_changed";
+
+    /**
+     * {@code "email.scheduled"}.
+     */
+    public static final String EMAIL_SCHEDULED = "email.scheduled";
+
+    /**
+     * {@code "suppression.added"}.
+     */
+    public static final String SUPPRESSION_ADDED = "suppression.added";
+
+    /**
+     * {@code "suppression.removed"}.
+     */
+    public static final String SUPPRESSION_REMOVED = "suppression.removed";
+
+    /**
+     * {@code "domain.created"}.
+     */
+    public static final String DOMAIN_CREATED = "domain.created";
+
+    /**
+     * {@code "domain.deleted"}.
+     */
+    public static final String DOMAIN_DELETED = "domain.deleted";
 
     private Event() {}
   }
