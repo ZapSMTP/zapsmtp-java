@@ -7,9 +7,11 @@ import com.zapsmtp.services.ActionsService;
 import com.zapsmtp.services.ApiKeysService;
 import com.zapsmtp.services.DedicatedIpsService;
 import com.zapsmtp.services.DomainsService;
+import com.zapsmtp.services.EmailValidationsService;
 import com.zapsmtp.services.EmailsService;
 import com.zapsmtp.services.InboundService;
 import com.zapsmtp.services.LogsService;
+import com.zapsmtp.services.PlacementTestsService;
 import com.zapsmtp.services.SimulatorService;
 import com.zapsmtp.services.SmtpCredentialsService;
 import com.zapsmtp.services.StatsService;
@@ -55,6 +57,8 @@ public final class ZapSMTP {
   private final TemplateTimersService templateTimers;
   private final ActionsService actions;
   private final VariablesService variables;
+  private final EmailValidationsService emailValidations;
+  private final PlacementTestsService placementTests;
 
   private ZapSMTP(ClientOptions options) {
     client = new ApiClient(options);
@@ -78,6 +82,8 @@ public final class ZapSMTP {
     templateTimers = new TemplateTimersService(client);
     actions = new ActionsService(client);
     variables = new VariablesService(client);
+    emailValidations = new EmailValidationsService(client);
+    placementTests = new PlacementTestsService(client);
   }
 
   /**
@@ -286,6 +292,24 @@ public final class ZapSMTP {
    */
   public VariablesService variables() {
     return variables;
+  }
+
+  /**
+   * The {@code emailValidations} operations.
+   *
+   * @return the service
+   */
+  public EmailValidationsService emailValidations() {
+    return emailValidations;
+  }
+
+  /**
+   * The {@code placementTests} operations.
+   *
+   * @return the service
+   */
+  public PlacementTestsService placementTests() {
+    return placementTests;
   }
 
   /**

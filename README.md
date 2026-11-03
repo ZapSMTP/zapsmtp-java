@@ -24,7 +24,7 @@ Maven:
 Gradle:
 
 ```kotlin
-implementation("com.zapsmtp:zapsmtp-java:0.1.6")
+implementation("com.zapsmtp:zapsmtp-java:0.1.7")
 ```
 
 ## Send an email

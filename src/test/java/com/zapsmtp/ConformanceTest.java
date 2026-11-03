@@ -70,7 +70,7 @@ class ConformanceTest {
     Set<String> ids = new HashSet<>();
     cases.forEach((c) -> ids.add(c.path("id").asText()));
     assertEquals(cases.size(), ids.size());
-    assertEquals(114, cases.size());
+    assertEquals(119, cases.size());
   }
 
   @TestFactory
